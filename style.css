@@ -1,0 +1,251 @@
+/* =========================
+   YOUTUBE LIQUID GLASS
+   ========================= */
+
+:root {
+    --lg-bg: rgba(20, 25, 35, 0.42);
+    --lg-bg-hover: rgba(255, 255, 255, 0.12);
+    --lg-border: rgba(255, 255, 255, 0.16);
+    --lg-highlight: rgba(255, 255, 255, 0.25);
+    --lg-shadow: rgba(0, 0, 0, 0.35);
+}
+
+/* Header */
+
+#masthead-container,
+#masthead {
+    background: rgba(15, 18, 25, 0.45) !important;
+
+    backdrop-filter: blur(22px) saturate(170%);
+    -webkit-backdrop-filter: blur(22px) saturate(170%);
+
+    border-bottom: 1px solid var(--lg-border) !important;
+
+    box-shadow:
+        0 8px 30px var(--lg-shadow),
+        inset 0 1px 0 var(--lg-highlight) !important;
+}
+
+/* Search */
+
+#search,
+#search-icon-legacy,
+#container.ytd-searchbox {
+    border-radius: 18px !important;
+}
+
+#search {
+    background: rgba(255, 255, 255, 0.07) !important;
+
+    backdrop-filter: blur(18px) saturate(160%);
+    -webkit-backdrop-filter: blur(18px) saturate(160%);
+
+    border: 1px solid var(--lg-border) !important;
+
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.18),
+        0 5px 25px rgba(0,0,0,.2);
+}
+
+/* Sidebar */
+
+#guide,
+#guide-content,
+ytd-guide-renderer {
+    background: rgba(15, 18, 25, 0.42) !important;
+
+    backdrop-filter: blur(25px) saturate(170%);
+    -webkit-backdrop-filter: blur(25px) saturate(170%);
+}
+
+/* Sidebar items */
+
+ytd-guide-entry-renderer,
+ytd-mini-guide-entry-renderer {
+    border-radius: 16px !important;
+
+    transition:
+        background .25s ease,
+        transform .2s ease;
+}
+
+ytd-guide-entry-renderer:hover,
+ytd-mini-guide-entry-renderer:hover {
+    background: var(--lg-bg-hover) !important;
+}
+
+/* Video cards */
+
+ytd-rich-item-renderer,
+ytd-grid-video-renderer,
+ytd-video-renderer,
+ytd-compact-video-renderer {
+    border-radius: 20px !important;
+
+    transition:
+        transform .25s ease,
+        background .25s ease,
+        box-shadow .25s ease;
+
+    padding: 6px !important;
+}
+
+/* Thumbnail */
+
+ytd-thumbnail {
+    border-radius: 17px !important;
+    overflow: hidden !important;
+}
+
+/* Video card hover */
+
+ytd-rich-item-renderer:hover,
+ytd-grid-video-renderer:hover,
+ytd-video-renderer:hover {
+    background: rgba(255,255,255,.055) !important;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 12px 35px rgba(0,0,0,.28),
+        inset 0 1px 0 rgba(255,255,255,.12);
+}
+
+/* Buttons */
+
+button,
+yt-icon-button,
+ytd-button-renderer {
+    border-radius: 14px !important;
+}
+
+button:hover,
+yt-icon-button:hover {
+    background: rgba(255,255,255,.10) !important;
+}
+
+/* Chips */
+
+yt-chip-cloud-chip-renderer {
+    border-radius: 18px !important;
+
+    background: rgba(255,255,255,.06) !important;
+
+    border: 1px solid rgba(255,255,255,.10) !important;
+
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+}
+
+/* Video player */
+
+.html5-video-player {
+    border-radius: 22px !important;
+    overflow: hidden !important;
+
+    box-shadow:
+        0 15px 50px rgba(0,0,0,.45),
+        inset 0 1px 0 rgba(255,255,255,.15);
+}
+
+/* Comments */
+
+#comments,
+ytd-comments {
+    border-radius: 24px !important;
+}
+
+/* Comment input */
+
+#simplebox-placeholder,
+ytd-comment-simplebox-renderer {
+    background: rgba(255,255,255,.055) !important;
+
+    border-radius: 18px !important;
+
+    border: 1px solid var(--lg-border) !important;
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+}
+
+/* Menus */
+
+ytd-menu-popup-renderer,
+tp-yt-paper-listbox,
+ytd-popup-container {
+    background: rgba(20, 24, 32, .72) !important;
+
+    backdrop-filter: blur(28px) saturate(180%);
+    -webkit-backdrop-filter: blur(28px) saturate(180%);
+
+    border: 1px solid rgba(255,255,255,.15) !important;
+
+    border-radius: 20px !important;
+
+    box-shadow:
+        0 20px 60px rgba(0,0,0,.45),
+        inset 0 1px 0 rgba(255,255,255,.20) !important;
+}
+
+/* Dialog */
+
+tp-yt-paper-dialog {
+    background: rgba(20,24,32,.70) !important;
+
+    backdrop-filter: blur(30px) saturate(180%);
+    -webkit-backdrop-filter: blur(30px) saturate(180%);
+
+    border-radius: 25px !important;
+
+    border: 1px solid rgba(255,255,255,.15) !important;
+}
+
+/* Mobile */
+
+@media (max-width: 700px) {
+
+    #masthead-container,
+    #masthead {
+        backdrop-filter: blur(25px) saturate(180%);
+        -webkit-backdrop-filter: blur(25px) saturate(180%);
+    }
+
+    ytd-rich-item-renderer,
+    ytd-video-renderer {
+        border-radius: 18px !important;
+    }
+
+    ytd-thumbnail {
+        border-radius: 15px !important;
+    }
+}
+
+/* Liquid shine */
+
+ytd-rich-item-renderer::after,
+ytd-video-renderer::after {
+    content: "";
+    position: absolute;
+    pointer-events: none;
+
+    inset: 0;
+
+    border-radius: inherit;
+
+    background:
+        linear-gradient(
+            120deg,
+            rgba(255,255,255,.12),
+            transparent 35%
+        );
+
+    opacity: .35;
+
+    transition: opacity .25s;
+}
+
+ytd-rich-item-renderer:hover::after,
+ytd-video-renderer:hover::after {
+    opacity: .7;
+}
