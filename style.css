@@ -1,251 +1,166 @@
-/* =========================
-   YOUTUBE LIQUID GLASS
-   ========================= */
+/* ===== LIQUID GLASS EFFECT ===== */
 
-:root {
-    --lg-bg: rgba(20, 25, 35, 0.42);
-    --lg-bg-hover: rgba(255, 255, 255, 0.12);
-    --lg-border: rgba(255, 255, 255, 0.16);
-    --lg-highlight: rgba(255, 255, 255, 0.25);
-    --lg-shadow: rgba(0, 0, 0, 0.35);
+/* Nền tổng thể trong suốt */
+ytd-app {
+  background: transparent !important;
 }
 
-/* Header */
-
-#masthead-container,
-#masthead {
-    background: rgba(15, 18, 25, 0.45) !important;
-
-    backdrop-filter: blur(22px) saturate(170%);
-    -webkit-backdrop-filter: blur(22px) saturate(170%);
-
-    border-bottom: 1px solid var(--lg-border) !important;
-
-    box-shadow:
-        0 8px 30px var(--lg-shadow),
-        inset 0 1px 0 var(--lg-highlight) !important;
+body {
+  background: linear-gradient(135deg, #0a0a2e 0%, #1a1a4e 30%, #0d2137 60%, #0a0a2e 100%) !important;
+  background-attachment: fixed !important;
 }
 
-/* Search */
-
-#search,
-#search-icon-legacy,
-#container.ytd-searchbox {
-    border-radius: 18px !important;
+/* Header / Thanh tìm kiếm glass */
+ytd-masthead,
+#masthead-container {
+  background: rgba(255, 255, 255, 0.05) !important;
+  backdrop-filter: blur(20px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
 }
 
-#search {
-    background: rgba(255, 255, 255, 0.07) !important;
-
-    backdrop-filter: blur(18px) saturate(160%);
-    -webkit-backdrop-filter: blur(18px) saturate(160%);
-
-    border: 1px solid var(--lg-border) !important;
-
-    box-shadow:
-        inset 0 1px 0 rgba(255,255,255,.18),
-        0 5px 25px rgba(0,0,0,.2);
+#search-form,
+#search-input {
+  background: rgba(255, 255, 255, 0.08) !important;
+  backdrop-filter: blur(10px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  border-radius: 20px !important;
 }
 
-/* Sidebar */
-
-#guide,
-#guide-content,
-ytd-guide-renderer {
-    background: rgba(15, 18, 25, 0.42) !important;
-
-    backdrop-filter: blur(25px) saturate(170%);
-    -webkit-backdrop-filter: blur(25px) saturate(170%);
+/* Video player area */
+#movie_player,
+.html5-video-container,
+video {
+  border-radius: 16px !important;
+  box-shadow: 0 8px 32px rgba(0, 100, 255, 0.3) !important;
 }
 
-/* Sidebar items */
-
-ytd-guide-entry-renderer,
-ytd-mini-guide-entry-renderer {
-    border-radius: 16px !important;
-
-    transition:
-        background .25s ease,
-        transform .2s ease;
+/* Sidebar đề xuất video */
+ytd-watch-next-secondary-results-renderer,
+#secondary {
+  background: rgba(255, 255, 255, 0.03) !important;
+  backdrop-filter: blur(15px) !important;
+  -webkit-backdrop-filter: blur(15px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-radius: 16px !important;
 }
 
-ytd-guide-entry-renderer:hover,
-ytd-mini-guide-entry-renderer:hover {
-    background: var(--lg-bg-hover) !important;
+/* Card video đề xuất */
+ytd-compact-video-renderer,
+ytd-compact-movie-renderer {
+  background: rgba(255, 255, 255, 0.05) !important;
+  backdrop-filter: blur(10px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-radius: 12px !important;
+  margin-bottom: 8px !important;
+  transition: all 0.3s ease !important;
 }
 
-/* Video cards */
-
-ytd-rich-item-renderer,
-ytd-grid-video-renderer,
-ytd-video-renderer,
-ytd-compact-video-renderer {
-    border-radius: 20px !important;
-
-    transition:
-        transform .25s ease,
-        background .25s ease,
-        box-shadow .25s ease;
-
-    padding: 6px !important;
+ytd-compact-video-renderer:hover {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border-color: rgba(100, 180, 255, 0.3) !important;
+  transform: scale(1.02) !important;
 }
 
-/* Thumbnail */
-
-ytd-thumbnail {
-    border-radius: 17px !important;
-    overflow: hidden !important;
-}
-
-/* Video card hover */
-
-ytd-rich-item-renderer:hover,
-ytd-grid-video-renderer:hover,
-ytd-video-renderer:hover {
-    background: rgba(255,255,255,.055) !important;
-
-    transform: translateY(-2px);
-
-    box-shadow:
-        0 12px 35px rgba(0,0,0,.28),
-        inset 0 1px 0 rgba(255,255,255,.12);
-}
-
-/* Buttons */
-
-button,
-yt-icon-button,
-ytd-button-renderer {
-    border-radius: 14px !important;
-}
-
-button:hover,
-yt-icon-button:hover {
-    background: rgba(255,255,255,.10) !important;
-}
-
-/* Chips */
-
-yt-chip-cloud-chip-renderer {
-    border-radius: 18px !important;
-
-    background: rgba(255,255,255,.06) !important;
-
-    border: 1px solid rgba(255,255,255,.10) !important;
-
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-}
-
-/* Video player */
-
-.html5-video-player {
-    border-radius: 22px !important;
-    overflow: hidden !important;
-
-    box-shadow:
-        0 15px 50px rgba(0,0,0,.45),
-        inset 0 1px 0 rgba(255,255,255,.15);
-}
-
-/* Comments */
-
+/* Comment section */
 #comments,
 ytd-comments {
-    border-radius: 24px !important;
+  background: rgba(255, 255, 255, 0.03) !important;
+  backdrop-filter: blur(15px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-radius: 16px !important;
+  padding: 16px !important;
 }
 
-/* Comment input */
-
-#simplebox-placeholder,
-ytd-comment-simplebox-renderer {
-    background: rgba(255,255,255,.055) !important;
-
-    border-radius: 18px !important;
-
-    border: 1px solid var(--lg-border) !important;
-
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
+/* Nút Subscribe */
+yt-subscribe-button-renderer button,
+ytd-subscribe-button-renderer button {
+  background: rgba(255, 0, 0, 0.2) !important;
+  backdrop-filter: blur(10px) !important;
+  border: 1px solid rgba(255, 0, 0, 0.4) !important;
+  border-radius: 20px !important;
 }
 
-/* Menus */
-
-ytd-menu-popup-renderer,
-tp-yt-paper-listbox,
-ytd-popup-container {
-    background: rgba(20, 24, 32, .72) !important;
-
-    backdrop-filter: blur(28px) saturate(180%);
-    -webkit-backdrop-filter: blur(28px) saturate(180%);
-
-    border: 1px solid rgba(255,255,255,.15) !important;
-
-    border-radius: 20px !important;
-
-    box-shadow:
-        0 20px 60px rgba(0,0,0,.45),
-        inset 0 1px 0 rgba(255,255,255,.20) !important;
+/* Like/Dislike buttons */
+yt-icon-button button,
+ytd-toggle-button-renderer button {
+  background: rgba(255, 255, 255, 0.05) !important;
+  backdrop-filter: blur(10px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 20px !important;
 }
 
-/* Dialog */
-
-tp-yt-paper-dialog {
-    background: rgba(20,24,32,.70) !important;
-
-    backdrop-filter: blur(30px) saturate(180%);
-    -webkit-backdrop-filter: blur(30px) saturate(180%);
-
-    border-radius: 25px !important;
-
-    border: 1px solid rgba(255,255,255,.15) !important;
+/* Thumbnail images */
+ytd-thumbnail img,
+#thumbnail img {
+  border-radius: 12px !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3) !important;
 }
 
-/* Mobile */
-
-@media (max-width: 700px) {
-
-    #masthead-container,
-    #masthead {
-        backdrop-filter: blur(25px) saturate(180%);
-        -webkit-backdrop-filter: blur(25px) saturate(180%);
-    }
-
-    ytd-rich-item-renderer,
-    ytd-video-renderer {
-        border-radius: 18px !important;
-    }
-
-    ytd-thumbnail {
-        border-radius: 15px !important;
-    }
+/* Scrollbar glass */
+::-webkit-scrollbar {
+  width: 8px !important;
 }
 
-/* Liquid shine */
-
-ytd-rich-item-renderer::after,
-ytd-video-renderer::after {
-    content: "";
-    position: absolute;
-    pointer-events: none;
-
-    inset: 0;
-
-    border-radius: inherit;
-
-    background:
-        linear-gradient(
-            120deg,
-            rgba(255,255,255,.12),
-            transparent 35%
-        );
-
-    opacity: .35;
-
-    transition: opacity .25s;
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.02) !important;
 }
 
-ytd-rich-item-renderer:hover::after,
-ytd-video-renderer:hover::after {
-    opacity: .7;
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15) !important;
+  border-radius: 10px !important;
+  backdrop-filter: blur(5px) !important;
+}
+
+/* Trang chủ - video cards */
+ytd-rich-item-renderer {
+  background: rgba(255, 255, 255, 0.03) !important;
+  backdrop-filter: blur(10px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.06) !important;
+  border-radius: 16px !important;
+  margin-bottom: 16px !important;
+  transition: all 0.3s ease !important;
+}
+
+ytd-rich-item-renderer:hover {
+  background: rgba(255, 255, 255, 0.07) !important;
+  border-color: rgba(100, 180, 255, 0.2) !important;
+  box-shadow: 0 8px 25px rgba(0, 100, 255, 0.15) !important;
+}
+
+/* Chip filters */
+ytd-chip-cloud-renderer {
+  background: rgba(255, 255, 255, 0.03) !important;
+  backdrop-filter: blur(15px) !important;
+}
+
+/* Text color adjustments */
+yt-formatted-string,
+#video-title,
+#text {
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+/* Animated background effect */
+body::before {
+  content: '';
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: 
+    radial-gradient(circle at 20% 50%, rgba(0, 100, 255, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(100, 0, 255, 0.06) 0%, transparent 50%),
+    radial-gradient(circle at 50% 80%, rgba(0, 200, 255, 0.05) 0%, transparent 50%);
+  animation: liquidMove 20s ease-in-out infinite;
+  z-index: -1;
+  pointer-events: none;
+}
+
+@keyframes liquidMove {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  25% { transform: translate(2%, -2%) rotate(1deg); }
+  50% { transform: translate(-1%, 3%) rotate(-1deg); }
+  75% { transform: translate(3%, 1%) rotate(0.5deg); }
 }
