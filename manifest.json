@@ -1,0 +1,23 @@
+{
+  "manifest_version": 2,
+  "name": "YouTube Liquid Glass",
+  "version": "1.0.0",
+  "description": "Liquid Glass UI for YouTube",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "youtube-liquid-glass@example.com",
+      "strict_min_version": "109.0"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://www.youtube.com/*",
+        "*://m.youtube.com/*"
+      ],
+      "css": ["style.css"],
+      "js": ["content.js"],
+      "run_at": "document_start"
+    }
+  ]
+}
