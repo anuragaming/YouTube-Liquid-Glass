@@ -1,43 +1,24 @@
-(() => {
-    "use strict";
+// Liquid Glass YouTube Extension
+(function() {
+  'use strict';
 
-    const CLASS_NAME = "youtube-liquid-glass";
+  // Thêm class vào body khi load
+  document.body.classList.add('liquid-glass-active');
 
-    function applyLiquidGlass() {
-        document.documentElement.classList.add(CLASS_NAME);
-    }
+  // Observer để áp dụng style khi YouTube load nội dung động (SPA)
+  const observer = new MutationObserver((mutations) => {
+    mutations.forEach((mutation) => {
+      if (mutation.addedNodes.length) {
+        // Force re-apply styles
+        document.documentElement.setAttribute('data-liquid-glass', 'true');
+      }
+    });
+  });
 
-    function observeYouTube() {
-        const observer = new MutationObserver(() => {
-            applyLiquidGlass();
-        });
+  observer.observe(document.body, {
+    childList: true,
+    subtree: true
+  });
 
-        observer.observe(document.documentElement, {
-            childList: true,
-            subtree: true
-        });
-    }
-
-    // YouTube là SPA nên URL thay đổi mà không reload trang
-    let lastURL = location.href;
-
-    setInterval(() => {
-        if (location.href !== lastURL) {
-            lastURL = location.href;
-
-            // Cho YouTube vài ms để render nội dung mới
-            setTimeout(applyLiquidGlass, 100);
-        }
-    }, 500);
-
-    applyLiquidGlass();
-
-    if (document.documentElement) {
-        observeYouTube();
-    }
-
-    console.log(
-        "%c YouTube Liquid Glass ",
-        "background:#111827;color:#fff;padding:6px 12px;border-radius:10px;font-weight:bold;"
-    );
+  console.log('🧊 Liquid Glass YouTube Extension loaded!');
 })();
