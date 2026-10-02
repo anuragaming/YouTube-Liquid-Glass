@@ -1,166 +1,76 @@
-/* ===== LIQUID GLASS EFFECT ===== */
 
-/* Nền tổng thể trong suốt */
-ytd-app {
-  background: transparent !important;
+/* Nền chính của YouTube */
+html, html[dark], [dark] {
+    --yt-spec-base-background: transparent !important;
+    --yt-spec-menu-background: rgba(30, 30, 30, 0.5) !important;
+    --yt-spec-raised-background: rgba(40, 40, 40, 0.5) !important;
 }
 
 body {
-  background: linear-gradient(135deg, #0a0a2e 0%, #1a1a4e 30%, #0d2137 60%, #0a0a2e 100%) !important;
-  background-attachment: fixed !important;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364) !important; /* Nền gradient xanh đen */
+    background-attachment: fixed !important;
 }
 
-/* Header / Thanh tìm kiếm glass */
-ytd-masthead,
+ytd-app, #background {
+    background: transparent !important;
+}
+
+/* Thanh Header (Top bar) */
 #masthead-container {
-  background: rgba(255, 255, 255, 0.05) !important;
-  backdrop-filter: blur(20px) saturate(180%) !important;
-  -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+    background-color: rgba(15, 15, 15, 0.4) !important;
+    backdrop-filter: blur(15px) !important;
+    -webkit-backdrop-filter: blur(15px) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+ytd-masthead {
+    background: transparent !important;
 }
 
-#search-form,
-#search-input {
-  background: rgba(255, 255, 255, 0.08) !important;
-  backdrop-filter: blur(10px) !important;
-  border: 1px solid rgba(255, 255, 255, 0.15) !important;
-  border-radius: 20px !important;
+/* Thanh bên trái (Sidebar) */
+#guide-wrapper, ytd-mini-guide-renderer, #guide-inner-content, ytd-app[is-watch-page] ytd-watch-flexy[flex-menu-enabled] #menu-container {
+    background-color: rgba(15, 15, 15, 0.4) !important;
+    backdrop-filter: blur(15px) !important;
+    -webkit-backdrop-filter: blur(15px) !important;
+    border-right: 1px solid rgba(255, 255, 255, 0.1) !important;
 }
 
-/* Video player area */
-#movie_player,
-.html5-video-container,
-video {
-  border-radius: 16px !important;
-  box-shadow: 0 8px 32px rgba(0, 100, 255, 0.3) !important;
+/* Ô tìm kiếm */
+ytd-searchbox[has-focus] #container.ytd-searchbox, #container.ytd-searchbox {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    border-radius: 20px !important;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1) !important;
 }
 
-/* Sidebar đề xuất video */
-ytd-watch-next-secondary-results-renderer,
-#secondary {
-  background: rgba(255, 255, 255, 0.03) !important;
-  backdrop-filter: blur(15px) !important;
-  -webkit-backdrop-filter: blur(15px) !important;
-  border: 1px solid rgba(255, 255, 255, 0.08) !important;
-  border-radius: 16px !important;
-}
-
-/* Card video đề xuất */
-ytd-compact-video-renderer,
-ytd-compact-movie-renderer {
-  background: rgba(255, 255, 255, 0.05) !important;
-  backdrop-filter: blur(10px) !important;
-  border: 1px solid rgba(255, 255, 255, 0.08) !important;
-  border-radius: 12px !important;
-  margin-bottom: 8px !important;
-  transition: all 0.3s ease !important;
-}
-
-ytd-compact-video-renderer:hover {
-  background: rgba(255, 255, 255, 0.1) !important;
-  border-color: rgba(100, 180, 255, 0.3) !important;
-  transform: scale(1.02) !important;
-}
-
-/* Comment section */
-#comments,
-ytd-comments {
-  background: rgba(255, 255, 255, 0.03) !important;
-  backdrop-filter: blur(15px) !important;
-  border: 1px solid rgba(255, 255, 255, 0.08) !important;
-  border-radius: 16px !important;
-  padding: 16px !important;
-}
-
-/* Nút Subscribe */
-yt-subscribe-button-renderer button,
-ytd-subscribe-button-renderer button {
-  background: rgba(255, 0, 0, 0.2) !important;
-  backdrop-filter: blur(10px) !important;
-  border: 1px solid rgba(255, 0, 0, 0.4) !important;
-  border-radius: 20px !important;
-}
-
-/* Like/Dislike buttons */
-yt-icon-button button,
-ytd-toggle-button-renderer button {
-  background: rgba(255, 255, 255, 0.05) !important;
-  backdrop-filter: blur(10px) !important;
-  border: 1px solid rgba(255, 255, 255, 0.1) !important;
-  border-radius: 20px !important;
-}
-
-/* Thumbnail images */
-ytd-thumbnail img,
-#thumbnail img {
-  border-radius: 12px !important;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3) !important;
-}
-
-/* Scrollbar glass */
-::-webkit-scrollbar {
-  width: 8px !important;
-}
-
-::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.02) !important;
-}
-
-::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.15) !important;
-  border-radius: 10px !important;
-  backdrop-filter: blur(5px) !important;
-}
-
-/* Trang chủ - video cards */
+/* Video cards & Thumbnail */
 ytd-rich-item-renderer {
-  background: rgba(255, 255, 255, 0.03) !important;
-  backdrop-filter: blur(10px) !important;
-  border: 1px solid rgba(255, 255, 255, 0.06) !important;
-  border-radius: 16px !important;
-  margin-bottom: 16px !important;
-  transition: all 0.3s ease !important;
+    background-color: rgba(255, 255, 255, 0.05) !important;
+    backdrop-filter: blur(8px) !important;
+    border-radius: 16px !important;
+    padding: 12px !important;
+    border: 1px solid rgba(255, 255, 255, 0.05) !important;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1) !important;
+    transition: transform 0.2s;
 }
 
 ytd-rich-item-renderer:hover {
-  background: rgba(255, 255, 255, 0.07) !important;
-  border-color: rgba(100, 180, 255, 0.2) !important;
-  box-shadow: 0 8px 25px rgba(0, 100, 255, 0.15) !important;
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    transform: scale(1.02);
 }
 
-/* Chip filters */
-ytd-chip-cloud-renderer {
-  background: rgba(255, 255, 255, 0.03) !important;
-  backdrop-filter: blur(15px) !important;
+/* Phần bình luận và cột bên phải (Watch page) */
+#secondary, ytd-comments {
+    background-color: rgba(20, 20, 20, 0.3) !important;
+    backdrop-filter: blur(10px) !important;
+    border-radius: 16px !important;
+    padding: 16px !important;
+    border: 1px solid rgba(255, 255, 255, 0.05) !important;
 }
 
-/* Text color adjustments */
-yt-formatted-string,
-#video-title,
-#text {
-  color: rgba(255, 255, 255, 0.9) !important;
-}
-
-/* Animated background effect */
-body::before {
-  content: '';
-  position: fixed;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: 
-    radial-gradient(circle at 20% 50%, rgba(0, 100, 255, 0.08) 0%, transparent 50%),
-    radial-gradient(circle at 80% 20%, rgba(100, 0, 255, 0.06) 0%, transparent 50%),
-    radial-gradient(circle at 50% 80%, rgba(0, 200, 255, 0.05) 0%, transparent 50%);
-  animation: liquidMove 20s ease-in-out infinite;
-  z-index: -1;
-  pointer-events: none;
-}
-
-@keyframes liquidMove {
-  0%, 100% { transform: translate(0, 0) rotate(0deg); }
-  25% { transform: translate(2%, -2%) rotate(1deg); }
-  50% { transform: translate(-1%, 3%) rotate(-1deg); }
-  75% { transform: translate(3%, 1%) rotate(0.5deg); }
+/* Menu dropdown */
+tp-yt-paper-listbox, ytd-multi-page-menu-renderer {
+    background-color: rgba(30, 30, 30, 0.6) !important;
+    backdrop-filter: blur(15px) !important;
+    border-radius: 12px !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
 }
