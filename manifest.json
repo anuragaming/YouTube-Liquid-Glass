@@ -1,15 +1,13 @@
 {
   "manifest_version": 3,
-  "name": "Liquid Glass YouTube",
+  "name": "YouTube Glassmorphism",
   "version": "1.0",
-  "description": "Thêm hiệu ứng liquid glass cho giao diện YouTube",
+  "description": "Giao diện Glassmorphism (kính mờ) cho YouTube.",
   "content_scripts": [
     {
-      "matches": ["*://www.youtube.com/*"],
-      "css": ["content.css"],
-      "js": ["content.js"],
-      "run_at": "document_idle"
+      "matches": ["*://*.youtube.com/*"],
+      "css": ["styles.css"],
+      "run_at": "document_start"
     }
-  ],
-  "permissions": []
+  ]
 }
